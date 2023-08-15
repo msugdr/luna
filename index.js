@@ -1,7 +1,10 @@
 const http = require('http');
+const fs = require('fs');
+var dat;
 const server = http.createServer((request, response) => { 
-  response.writeHead(400, {"Content-Type": "text/plain"});
-  response.end("Hello World\n");
+  response.writeHead(200, {"Content-Type": "text/plain"});
+  dat=fs.readFileSync('text.txt','utf8');
+  response.end(dat);
 });
 server.listen(process.env.PORT);
 
