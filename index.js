@@ -1,10 +1,8 @@
 const http = require('http');
-const fs = require('fs');
-var dat;
+var msg;
 const server = http.createServer((request, response) => { 
-  response.writeHead(200, {"Content-Type": "img/png"});
-  dat=fs.readFileSync('girl.png','binary');
-  response.end(dat,'binary');
-});
-server.listen(process.env.PORT);
+  msg = " URI : " + request.url; 
+  response.end(msg);});
+server.listen(const port = process.env.PORT);
+
 
