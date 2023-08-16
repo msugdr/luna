@@ -1,23 +1,25 @@
 const http = require('http');
-var msg;
-const server = http.createServer((request, response) => { 
-  response.write(" URI    : " + request.url + "\n"); 
-  response.write(" METHOD : " + request.method + "\n"); 
+const requestx = require('request');
+const TOKEN = "0maOvAs8dtXu8h7eEPMXGk2VqMcj6LEztSP9C7kudOg"
+const message = `これはテストですよ`;
+sendRequest(message); // デプロイされたときに実行される
+function sendRequest (message) {
+  const options = {
+    uri: 'https://notify-api.line.me/api/notify',
+    headers: {
+      'Authorization': `Bearer ${TOKEN}`
+    },
+    form: {
+      ‘message’ : message
+    }
+  };
+  requestx.post(options, (error, response, body) => {
+    if (error) {
+      return;
+    }
+  });
+}
 
-  if (request.method === 'POST'){
-//    response.write("POST\n");
-        var data = '';
-        request.on('data', function(chunk) {data += chunk})
-           .on('end', function() {
-             response.write('POST DATA : ' + data);
-            })
-  } else {
-//   response.write("NON POST\n");
-   
-  }
-  response.end();
-});
-server.listen(process.env.PORT);
 
 
 
