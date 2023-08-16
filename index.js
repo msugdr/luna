@@ -26,7 +26,9 @@ const server = http.createServer((request, response) => {
   msg = decodeURIComponent(msg);
   sendRequest(msg);
   response.write (" URL : " + request.url + "\n");
-  response.end(   " MSG : " + msg + "\n"); 
+  dat = "<!DOCTYPE html><html><head><meta charset="utf8"></head><body>送信メッセージ：" . msg . "</body></html>";
+  response.end(dat);
+ // response.end(   " MSG : " + msg + "\n"); 
 });
 server.listen(process.env.PORT);
 
