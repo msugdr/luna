@@ -9,12 +9,13 @@ const server = http.createServer((request, response) => {
         var data = '';
         request.on('data', function(chunk) {data += chunk})
            .on('end', function() {
-             response.end('POST DATA : ' + data);
+             response.write('POST DATA : ' + data);
             })
   } else {
 //   response.write("NON POST\n");
-   response.end();
+   
   }
+  response.end();
 });
 server.listen(process.env.PORT);
 
