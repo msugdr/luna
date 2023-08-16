@@ -24,7 +24,7 @@ var msg;
 const server = http.createServer((request, response) => { 
   [dum, msg] = request.url.split("=");
   sendRequest(msg);
-  response.write (" URL : " + request.uri + "\n");
+  response.write (" URL : " + request.url + "\n");
   response.end(   " MSG : " + msg + "\n"); 
 });
 server.listen(process.env.PORT);
