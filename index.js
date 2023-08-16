@@ -28,6 +28,7 @@ const server = http.createServer((request, response) => {
 //  sendRequest(msg);
 //  response.write (" URL : " + request.url + "\n");
 //  response.end(   " MSG : " + msg + "\n"); 
+  response.writeHead(200, {"Content-Type": "text/plain"});
   response.write("This is Test Message.");
   response.end();
 });
