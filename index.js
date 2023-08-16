@@ -23,7 +23,7 @@ function sendRequest (message) {
 var msg;
 const server = http.createServer((request, response) => { 
   [dum, msg] = request.url.split("=");
-msg = msg.replace(/\+/g," ");
+msg = msg.replace(/a/g,'b');
 msg = decodeURIComponent(msg);
   sendRequest(msg);
   response.write (" URL : " + request.url + "\n");
