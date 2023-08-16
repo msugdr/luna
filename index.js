@@ -22,9 +22,8 @@ function sendRequest (message) {
 
 var msg;
 const server = http.createServer((request, response) => { 
-  [dum, msg1] = request.url.split("=");
-msg = msg1.replace("a","b");
-msg = decodeURIComponent(msg);
+  [dum, msg] = request.url.split("=");
+　msg = decodeURIComponent(msg);
   sendRequest(msg);
   response.write (" URL : " + request.url + "\n");
   response.end(   " MSG : " + msg + "\n"); 
