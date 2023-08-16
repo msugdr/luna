@@ -12,6 +12,7 @@ const server = http.createServer((request, response) => {
              response.end('POST DATA : ' + data);
             })
   } else {
+   response.write("NON POST\n");
    response.end();
   }
 });
