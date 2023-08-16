@@ -2,7 +2,7 @@ const http = require('http');
 
 const requestx = require('request');
 const TOKEN = "0maOvAs8dtXu8h7eEPMXGk2VqMcj6LEztSP9C7kudOg"
-sendRequest("デプロイされました"); // デプロイされたときに実行される
+//sendRequest("デプロイされました"); // デプロイされたときに実行される
 function sendRequest (message) {
   const options = {
     uri: "https://notify-api.line.me/api/notify",
@@ -25,9 +25,11 @@ const server = http.createServer((request, response) => {
   [dum, msg] = request.url.split("=");
   msg = decodeURIComponent(msg);
   msg = msg.replace(/\+/g, ' ');
-  sendRequest(msg);
-  response.write (" URL : " + request.url + "\n");
-  response.end(   " MSG : " + msg + "\n"); 
+//  sendRequest(msg);
+//  response.write (" URL : " + request.url + "\n");
+//  response.end(   " MSG : " + msg + "\n"); 
+  response.write("This is Test Message.");
+  response.end();
 });
 server.listen(process.env.PORT);
 
