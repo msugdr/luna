@@ -2,16 +2,15 @@ const http = require('http');
 
 const requestx = require('request');
 const TOKEN = "0maOvAs8dtXu8h7eEPMXGk2VqMcj6LEztSP9C7kudOg"
-const message = `これはテストですよ`;
-sendRequest(`デプロイされました`); // デプロイされたときに実行される
+sendRequest("デプロイされました"); // デプロイされたときに実行される
 function sendRequest (message) {
   const options = {
-    uri: 'https://notify-api.line.me/api/notify',
+    uri: "https://notify-api.line.me/api/notify",
     headers: {
-      'Authorization': `Bearer ${TOKEN}`
+      "Authorization": `Bearer ${TOKEN}`
     },
     form: {
-      ‘message’ : message
+      "message" : message
     }
   };
   requestx.post(options, (error, response, body) => {
