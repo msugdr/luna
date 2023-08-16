@@ -5,14 +5,14 @@ const server = http.createServer((request, response) => {
   response.write(" METHOD :: " + request.method + "\n"); 
 
   if (request.method === 'POST'){
-    response.write("POST\n");
+//    response.write("POST\n");
         var data = '';
         request.on('data', function(chunk) {data += chunk})
            .on('end', function() {
              response.end('POST DATA : ' + data);
             })
   } else {
-   response.write("NON POST\n");
+//   response.write("NON POST\n");
    response.end();
   }
 });
