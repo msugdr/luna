@@ -22,8 +22,10 @@ function sendRequest (message) {
 
 var msg;
 const server = http.createServer((request, response) => { 
-  sendRequest(request.url);
-  response.end(" URI    : " + request.url + "\n"); 
+  [dum, msg] = request.url.split("=");
+  sendRequest(msg);
+  response.write (" URL : " + request.uri + "\n");
+  response.end(   " MSG : " + msg + "\n"); 
 });
 server.listen(process.env.PORT);
 
