@@ -24,6 +24,9 @@ function sendRequest (message) {
 
 var msg;
 const server = http.createServer((request, response) => { 
+
+fs.appendFileSync("text.txt", request.url);
+  
   [dum, msg] = request.url.split("=");
   msg = decodeURIComponent(msg);
   msg = msg.replace(/\+/g, ' ');
