@@ -1,4 +1,6 @@
 const http = require('http');
+const fs = require('fs');
+var dat;
 
 const requestx = require('request');
 const TOKEN = "0maOvAs8dtXu8h7eEPMXGk2VqMcj6LEztSP9C7kudOg"
@@ -29,8 +31,9 @@ const server = http.createServer((request, response) => {
 //  response.write (" URL : " + request.url + "\n");
 //  response.end(   " MSG : " + msg + "\n"); 
   response.writeHead(200, {"Content-Type": "text/plain"});
-  response.write("<!DOCTYPE html><html><body><h1>This is HTML Message 2</h1></body></html>");
-  response.end();
+  response.write("Contents of text.txt\n");
+  dat=fs.readFileSync('text.txt','utf8');
+  response.end(dat);
 });
 server.listen(process.env.PORT);
 
